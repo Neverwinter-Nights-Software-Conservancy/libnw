@@ -1,0 +1,23 @@
+.TH nwareamap 1 @RELDATE@ @PACKAGE@-@VERSION@
+.SH "NAME"
+nwareamap \- generate maps from a module
+.SH "SYNOPSIS"
+nwareamap [ -g gamedir ] [ -v ] [ -t ] module.mod
+.SH "DESCRIPTION"
+nwareamap examines a module and its hak packs (if any), and generates
+various output, depending on the flags given.
+.P
+-t: list tileset name and dimensions for each area in the module.
+.SH "EXIT STATUS"
+On success, 0 is returned.
+For any fatal error, a non-zero value is returned.
+.SH "BUGS"
+nwareamap is very much a work in progress.
+.SH "ENVIRONMENT"
+NWN_GAME_DIR: the root of the game directory, overridden by the -g flag.
+.SH "AUTHOR"
+Marty Shannon <mailto:mshannon@domovina.org>
+.SH "SEE ALSO"
+nwaggext(1),
+nwresext(1),
+itpdis(1).

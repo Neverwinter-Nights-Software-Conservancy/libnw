@@ -1,0 +1,16 @@
+.TH get_game_dir 3 2003/08/30 libnw-1.30.02
+.SH "NAME"
+get_game_dir() \- get the value of the environment variable NWN_GAME_DIR
+.SH "SYNOPSIS"
+#include "gamedir.h"
+.br
+char* get_game_dir();
+.SH "DESCRIPTION"
+get_game_dir gets the environment variable NWN_GAME_DIR, and returns its
+value if non-empty.
+.SH "RETURN VALUE"
+If the environment variable does not exist, or if its value is empty,
+0 is returned.
+Otherwise a pointer to its value is returned.
+.SH "AUTHOR"
+Marty Shannon <mailto:mshannon@domovina.org>

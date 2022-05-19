@@ -1,0 +1,32 @@
+0	string	\#MAXWALKMESH	NWN WOK (walkmesh) resource text
+0	string	;\ NEVERWINTER\ NIGHTS\ TILESET\ FI	NWN SET (tileset) resource text
+0	string	2DA\ V2.0	NWN 2DA (2-dimensional array) resource data
+0	string	BIC\ V3.2	NWN BIC (character) resource data
+0	string	BIFFV1\ \ 	NWN BIF data
+0	string	BIK	NWN BIK (movie) data
+0	string	BMU\ V1.0	NWN BMU (audio) resource data
+>8	string	ID3	(mp3)
+0	string	DLG\ V3.2	NWN DLG (dialog) resource data
+0	string	ERF\ V1.0	NWN ERF (encapsulated resource format) data
+0	string	GFF\ V3.2	NWN GFF (generic format) resource data
+0	string	GUI\ V3.2	NWN GUI (graphical user interface) resource data
+0	string	HAK\ V1.0	NWN HAK (hakpack) data
+0	string	ITP\ V3.2	NWN ITP (tile/blueprint palette) resource data
+0	string	KEY\ V1\ \ 	NWN KEY (key table) data
+0	string	LTR\ V1.0	NWN LTR (generated names letters) resource data
+0	string	MOD\ V1.0	NWN MOD (module) data
+0	string	NCS\ V1.0	NWN NCS (nwscript compiled) resource data
+0	string	NDB\ V1.0	NWN NDB (nwscript debug) resource text
+0	string	PLT\ V1\ \ 	NWN PLT (packed layered texture) resource data
+0	string	PTT\ V3.2	NWN PTT (plot blueprint) resource data
+0	string	SSF\ V1.0	NWN SSF (sound set) resource data
+0	string	TLK\ V3.0	NWN TLK (talk table) data
+0	string	UTC\ V3.2	NWN UTC (creature blueprint) resource data
+0	string	UTD\ V3.2	NWN UTD (door blueprint) resource data
+0	string	UTE\ V3.2	NWN UTE (encounter blueprint) resource data
+0	string	UTI\ V3.2	NWN UTI (item blueprint) resource data
+0	string	UTM\ V3.2	NWN UTM (merchant blueprint) resource data
+0	string	UTP\ V3.2	NWN UTP (placeable blueprint) resource data
+0	string	UTS\ V3.2	NWN UTS (sound blueprint) resource data
+0	string	UTT\ V3.2	NWN UTT (trap blueprint) resource data
+0	string	UTW\ V3.2	NWN UTW (waypoint blueprint) resource data

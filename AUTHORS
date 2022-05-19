@@ -1,0 +1,35 @@
+I am the primary author of all the code included in this package:
+Marty Shannon (mailto:mshannon@domovina.org).
+
+Several folks from the Open Knights consortium (http://openknights.sf.net)
+have contributed code and testing.  Among them are:
+
+Peter Gorniak (sumpfork) for lots of endian fixes,
+Francois Guimond (Eyrdan),
+and of course, our fearless leader,
+Rick Shafer (Ras_Kcir).
+
+I've also definitely been helped by lots of information (in no particular order)
+from:
+
+Benjamin Moos
+mailto:smokeserpent@psnw.com
+http://www.psnw.com/~smokeserpent/
+
+Edward T. Smith
+http://www.torlack.com/
+
+Jayson Harshbarger
+http://www.hypercubed.com/
+
+Michael Nagy
+mailto:segfault@hotmail.com
+
+Cathoris (K'Thoris?)
+
+I confess there may be others, so if I've forgotten anyone, my humble
+apologies, and please let me know if it looks like I've absorbed info from you.
+
+Thanks to all who have made their source code or other information available!
+
+	Marty

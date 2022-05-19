@@ -1,0 +1,68 @@
+There are a number of fundamental file types used in NWN, and many share
+fundamental structure within them.  Here, I will attempt to describe them
+so it may be easier for others to read my code.
+
+chitin.key:
+
+This file is basically a table of contents for all the BIF files supplied
+with NWN.  Like all NWN files, it starts with a 4-byte signature, and a 4-byte
+version.  Following those, still in the header, are a count of filenames
+referenced, a count of resources (the number of entries in the table of
+contents), and offsets for the list of filenames and list of resources --
+along with a number of as yet unidentified fields.  The list of filenames is
+simply that, and this list is referenced by a field in the table of contents.
+A TOC entry consists of a 16-character name, a 16-bit resource type (instead
+of the 3 characters used as the filename extension), an index into the TOC
+of the referenced file, and an index into the list of filenames.
+
+patch.key (introduced in 1.28):
+
+Structurally identical to chitin.key, this file lists the contents of
+data/patch.bif.  This file now replaces most of the update contents of the
+override directory.
+
+dialog.tlk:
+
+This is essentially an array of strings.  In the header, there is a count of
+them, and an offset of the base of the character data.  Following that is a
+table with an entry for each string that includes its length, its offset from
+the base, an optional WAV resource name, and a duration for playing that WAV.
+
+data/*.bif:
+
+Each of these files is an aggregation of NWN resources.  It has a standard
+signature/version header, along with a count of the number of resources
+(and other unidentified fields).  The there is the BIF table of contents,
+each entry of which has an offset, a length, a resource type, a resource
+index, and another unidentified field.
+
+nwm/*.nwm, modules/*.mod, hak/*.hak, *.erf:
+
+These all share the same basic structure, and are distinguished by their
+signature/version headers.  This internal structure is quite complex,
+and rather than describe it here, I point you to the documentation I found
+(http://www.psnw.com/~smokeserpent/nwn/hakformat.html).  Notes to add to
+smokeserpent's description: The 1st 2 longs following the signature/version
+indicate whether there is a description block at all, and how long it is.
+If present, the description block starts with a string length, a language
+identifier, and the character data of the description itself.  Presumably,
+this may be repeated for multiple languages, but I have seen no example
+of this.  The rest of the file is essentially another aggregation of resources.
+
+Once resources are extracted from any of the above files (on my machine,
+it takes about 15 minutes to run nwresext to extract all 43871 resources
+from the original BIF files!), it can be seen that a number of them are almost,
+but not quite standard file formats (usually, the only difference is the 8-byte
+signature/version typical of all NWN resources).  These include: BMP, MP3 (not
+in BIF files, and claimed to be unsupported), TGA, WAV.  Another set is normal
+ASCII text: 1DA, 2DA, DWK, INI, NSS, PWK, SET, TXI, TXT, WOK.  There are
+only a few others in addition to the set mentioned below.  They tend to have
+unique internal structure.
+
+Finally, there is another set that shares a complex file structure: ARE, BIC,
+DLG, FAC, GFF, GIC, GIT, GUI, IFO, ITP, JRL, PTT, UTC, UTD, UTE, UTI, UTM, UTP,
+UTS, UTT, UTW.  These all resemble a "property list", in that they all have a
+list of property names, and arbitrary typed data as values for each property.
+For the best description of the internal structure of these files, I refer
+you to the ITPFile.txt file in segfault's ITPTool source code (see AUTHORS;
+I no longer seem to have a URL, but I'm fairly sure I got it via NWVault).

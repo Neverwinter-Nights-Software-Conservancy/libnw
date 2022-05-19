@@ -1,0 +1,36 @@
+.TH nwresext 1 @RELDATE@ @PACKAGE@-@VERSION@
+.SH "NAME"
+nwresext \- list, extract NWN BIF files
+.SH "SYNOPSIS"
+nwresext [-g gamedir] [-v] [-t] [-x] [ resource ... ]
+.SH "DESCRIPTION"
+nwresext is a multipurpose command to list or extract resources listed in
+NWN's chitin.key file.
+.P
+With the -t flag, it lists the resources found in the file; adding the -v
+flag adds their sizes and offsets.
+.P
+With the -x flag, it extracts the specified resources (or all of them,
+if none are specified), each into its own file, into the current directory;
+adding the -v flag prints a '.' on stdout for each resource extracted.
+.P
+It is an error to use the -t flag with the -x flag.
+.P
+It is an error to use neither of the -t or -x flags.
+.SH "EXIT STATUS"
+On success, 0 is returned.
+For any fatal error, a non-zero value is returned.
+.SH "NOTES"
+There are some 43871 resources in the retail NWN (1.27); 1.28 brings it up
+to 44107.
+Not only does it take a long time to extract all of them (~15 minutes on a
+dual Pentium-3 @ 850MHz), it also makes for a very large output directory.
+.SH "BUGS"
+The NWN override directory is ignored.
+.SH "ENVIRONMENT"
+NWN_GAME_DIR: the root of the game directory, overridden by the -g flag.
+.SH "AUTHOR"
+Marty Shannon <mailto:mshannon@domovina.org>
+.SH "SEE ALSO"
+nwaggext(1),
+itpdis(1).

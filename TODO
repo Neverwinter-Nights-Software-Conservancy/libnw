@@ -1,0 +1,7 @@
+* take XML produced by itpdis & convert it to binary.
+
+* document what's in libnw.
+
+* extend nwaggext's syntax to resemble that of zip/unzip/tar/etc., allowing
+	such operations as "freshen", "move" (vs. "copy"), "add", "delete",
+	etc.

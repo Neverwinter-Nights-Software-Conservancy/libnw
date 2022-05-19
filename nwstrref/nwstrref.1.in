@@ -1,0 +1,21 @@
+.TH nwstrref 1 @RELDATE@ @PACKAGE@-@VERSION@
+.SH "NAME"
+nwstrref \- extract numbered strings from NWN's dialog.tlk
+.SH "SYNOPSIS"
+nwstrref [ -g gamedir ] [ integer ... ]
+.br
+nwstrref [ -g gamedir ] -w
+.SH "DESCRIPTION"
+In the 1st form, strref extracts and displays the strings referenced by the
+integer arguments from NWN's dialog.tlk.
+Each integer may be in decimal, hex, or octal.
+.P
+In the 2nd form, all strings that have an associated WAV resource are
+displayed.
+.SH "EXIT STATUS"
+On success, 0 is returned.
+For any fatal error, a non-zero value is returned.
+.SH "ENVIRONMENT"
+NWN_GAME_DIR: the root of the game directory, overridden by the -g flag.
+.SH "AUTHOR"
+Marty Shannon <mailto:mshannon@domovina.org>

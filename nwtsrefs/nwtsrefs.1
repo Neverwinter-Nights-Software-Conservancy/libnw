@@ -1,0 +1,40 @@
+.TH nwtsrefs 1 2003/08/30 libnw-1.30.02
+.SH "NAME"
+nwtsrefs \- find all resource references in a tileset
+.SH "SYNOPSIS"
+nwtsrefs [ -g gamedir ] -1 ts1.set
+.SH "DESCRIPTION"
+nwtsrefs examines the SET file, displaying all the RESREFs it finds.
+It then recurses into all the files it finds.
+.P
+Each resource discovered will elicit a paragraph like:
+.P
+.nf
+.na
+xxx01.set refers to:
+	xxx01.ini (local)
+	xxx01__env.txi (?)
+	mall_a01.tga (base)
+.ad
+.fi
+.P
+where the file xxx01.set and xxx01.ini are files present in the current
+directory, mall_a01.tga is part of the game base resources, and xxx01__env.txi
+is not present in either the current directory or the game resources.
+.P
+It is an error to omit the -1 flag.
+.SH "EXIT STATUS"
+On success, 0 is returned.
+For any fatal error, a non-zero value is returned.
+.SH "BUGS"
+nwtsrefs is not quite complete, but nearly so.
+.P
+nwtsrefs does not recurse into resources provided by the game.
+.SH "ENVIRONMENT"
+NWN_GAME_DIR: the root of the game directory, overridden by the -g flag.
+.SH "AUTHOR"
+Marty Shannon <mailto:mshannon@domovina.org>
+.SH "SEE ALSO"
+nwaggext(1),
+nwresext(1),
+itpdis(1).

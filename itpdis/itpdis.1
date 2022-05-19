@@ -1,0 +1,26 @@
+.TH itpdis 1 2003/08/30 libnw-1.30.02
+.SH "NAME"
+itpdis \- display XML form of NWN resources
+.SH "SYNOPSIS"
+itpdis [-g gamedir] file.itp
+.SH "DESCRIPTION"
+itpdis is a disassembler of a class of resources used in NWN.
+.P
+The current resource types it handles is:
+ARE, BIC, DLG, FAC, GFF, GIC, GIT, GUI, IFO, ITP, JRL, PTT, UTC, UTD, UTE,
+UTI, UTM, UTP, UTS, UTT, UTW.
+.P
+These resource types all share a common internal structure, which is displayed
+in an unambiguous way.
+.SH "EXIT STATUS"
+On success, 0 is returned.
+For any fatal error, a non-zero value is returned.
+.SH "FILES"
+See also the xml directory in the distribution.
+.SH "ENVIRONMENT"
+NWN_GAME_DIR: the root of the game directory, overridden by the -g flag.
+.SH "AUTHOR"
+Marty Shannon <mailto:mshannon@domovina.org>
+.SH "SEE ALSO"
+nwresext(1),
+nwaggext(1).

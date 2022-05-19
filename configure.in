@@ -1,0 +1,62 @@
+dnl Process this file with autoconf to produce a configure script.
+dnl AC_PREREQ(2.54)
+AC_PREREQ(2.13)
+dnl AC_INIT([libnw],[1.29.07],[mshannon@domovina.org])
+AC_INIT(nwtsrefs/main.c)
+dnl AC_CONFIG_SRCDIR(libnw/version.c)
+AM_INIT_AUTOMAKE(libnw,1.30.02)
+
+RELDATE=[2003/08/30]
+AC_SUBST(RELDATE)
+AC_DEFINE_UNQUOTED(RELDATE, "$RELDATE", [Release date of package])
+
+dnl Checks for programs.
+AC_PROG_AWK
+AC_PROG_CC
+AC_PROG_CXX
+AC_PROG_INSTALL
+AC_PROG_LN_S
+AM_PROG_LEX
+AC_PROG_YACC
+AC_PROG_LIBTOOL
+dnl AC_ARG_VAR(PERL, Perl interpreter, e.g. /usr/bin/perl)
+AC_PATH_PROG(PERL, perl, /usr/bin/perl)
+
+dnl Checks for libraries.
+
+dnl Checks for header files.
+AC_HEADER_STDC
+AC_HEADER_TIME
+AC_CHECK_HEADERS([malloc.h memory.h stddef.h stdlib.h string.h unistd.h endian.h machine/endian.h getopt.h sys/time.h ctype.h])
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+AC_STRUCT_TM
+AC_C_BIGENDIAN
+AC_TYPE_SIZE_T
+
+dnl Checks for library functions.
+dnl AC_FUNC_MALLOC
+dnl AC_FUNC_REALLOC
+AC_CHECK_FUNCS([memset strcasecmp strchr strdup strncasecmp strrchr strspn strtol])
+
+AM_CONFIG_HEADER(config.h)
+AC_OUTPUT([
+	README Makefile Doxyfile
+	libnw/Makefile libnw/agg_toc_load.3 libnw/agg_toc_del.3
+	libnw/agg_create.3 libnw/bif_toc_load.3 libnw/get_game_dir.3
+	libnw/read_key.3
+	include/Makefile
+	nwresext/Makefile nwresext/nwresext.1
+	nwtsmerge/Makefile nwtsmerge/nwtsmerge.1
+	itpdis/Makefile itpdis/itpdis.1
+	nwaggext/Makefile nwaggext/nwaggext.1
+	nwtsrefs/Makefile nwtsrefs/nwtsrefs.1
+	nwtsfix/Makefile nwtsfix/nwtsfix.1
+	xml/Makefile
+	nwstrref/Makefile nwstrref/nwstrref.1
+	nw2da2csv/Makefile nw2da2csv/nw2da2csv.1
+	nwmrgplc/Makefile nwmrgplc/nwmrgplc.1
+	nwareamap/Makefile nwareamap/nwareamap.1
+	plistcheck/Makefile
+])

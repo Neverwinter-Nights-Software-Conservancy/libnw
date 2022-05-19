@@ -1,0 +1,89 @@
+This README reflects version @VERSION@ of @PACKAGE@ dated @RELDATE@.
+
+This package consists of a library (libnw) and several programs for extracting
+and manipulating resources from BioWare's Neverwinter Nights game.  Although I
+did a lot of the file format deduction myself, I am deeply indebted to a
+number of other folks (see file AUTHORS) for insights, clues, tables, and
+code.  See file README.tech for some commentary on the data files for NWN.
+The rest of the documentation is, alas, sadly lacking, though there are man
+pages for the commands.
+
+What's here (roughly in the order they were started):
+
+libnw - a library of common routines used by the rest of the code.  Among them
+	is a complete parser for the SET file.
+
+nwresext - a program to list (or extract) resources from the BIF files
+	provided by BioWare as "base" resources (including the (new for 1.28)
+	resources described by patch.key).
+
+nwaggext - a program to list (or extract) resources from ERF/HAK/MOD/SAV files.
+	Now (as of version 1.28.01), it can also create an ERF/HAK/MOD
+	(but with no description).
+
+nwtsrefs - a program to read a tileset's SET file, and (recursively) chase
+	down all the resources referred to.  (Requires Torlack's nwnmdlcomp
+	to convert binary models to ascii.)
+
+nwtsfix - a program to read a tileset's SET file, and adjust counts, build
+	primary rules, prompt for custom door types.  (Prompted by a discussion
+	with Velmar.)
+
+nwtsmerge - the beginnings of a program to automagically merge tilesets
+	(a work in progress).
+
+itpdis - a program to disassemble a number of different kinds of resources
+	(they all share the common GFF file format) into XML.  The current
+	list includes: ARE, BIC, DLG, FAC, GFF, GIC, GIT, GUI, IFO, ITP,
+	JRL, PTT (new in 1.27), UTC, UTD, UTE, UTI, UTM, UTP, UTS, UTT, UTW.
+
+nwstrref - a command line interface to extract the string associated with
+	a STRREF.  (New in 1.28.02, this was written purely to test a new
+	routine in the library to extract STRREFs.)
+
+nw2da2csv - a command line interface to extract a 2DA, formatting it as
+	a CSV (comma separated values) file.  (New in 1.28.03, this was
+	written purely to test a new routine in the library to extract 2DA
+	resources in a manipulable form.)
+
+nwmrgplc - the beginnings of a placeables hak pak merger.  Not ready for
+	prime time: a work very much in progress.  (New in 1.28.03.)
+
+nwareamap - the beginnings of extracting area maps.  Does precious little
+	at the moment, but will grow to create full-size area maps.  Currently,
+	it displays (defaultly lots of) information about the tilesets and
+	tiles referenced in the areas of a module.  Another work very much
+	in progress.  (New in 1.29.03.)
+
+There are still lots of debugging printfs in the code, as much of the existing
+code started life as investigatory tools.  That will probably be fixed fairly
+soon (i.e., once I'm much more confident that the code I have is "correct").
+There is also a lot of other ugliness as a result of this code's heritage,
+but this is slowly being eliminated as I restructure.
+
+Note that I am actively working on this code, and trying to keep up with
+all the new stuff BioWare continues to add via patches.
+
+Eventually, I'd like to provide the ability to add/delete individual resources
+to/from ERF/HAK/MOD files.  This will take some time....
+
+Similarly, I'd eventually like to be able to create ITP-like resources from
+XML source (such as itpdis produces).  Again, this is more than I currently
+have time to bite off.  (Reading the XML is a piece of cake; creating the
+binary format BioWare uses is the hard part.)
+
+Of course, there are other tools I'd also like to build, but I haven't yet
+fleshed out exactly what I want them to do, or how to do it.
+
+For those keeping score, all of this code was developed under Red Hat
+Linux 7.3 initially, and currently Red Hat Linux 9, using all the GNU tools
+included therein.
+
+Needless to say, if you like what I've done, or find bugs, please let me
+know, and I'll do what my free time permits to fix them.  I really want
+folks to use this code, develop their own apps around it, and, hopefully,
+permit me to fold their code back into the package!
+
+	Marty Shannon
+	(AKA Olias of Sunhillow)
+	mailto:mshannon@domovina.org

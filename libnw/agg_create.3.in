@@ -1,0 +1,22 @@
+.TH agg_create 3 @RELDATE@ @PACKAGE@-@VERSION@
+.SH "NAME"
+agg_create() \- create an aggregate file from file resources
+.SH "SYNOPSIS"
+#include "agg.h"
+.br
+int agg_create(char** argv, int type);
+.SH "DESCRIPTION"
+agg_create creates an aggregate file whose name is \fIargv[0]\fP, with
+resource files named in the subsequent elements of \fIargv\fP.
+.P
+\fItype\fP determines which type of aggregate file is created:
+0 -> MOD; 1 -> HAK; 2 -> ERF.
+.SH "RETURN VALUE"
+On any error condition, 0 is returned.
+Otherwise, a non-zero integer is returned.
+.SH "AUTHOR"
+Marty Shannon <mailto:mshannon@domovina.org>
+.SH "SEE ALSO"
+nwaggext(1),
+agg_toc_load(3),
+agg_toc_del(3).

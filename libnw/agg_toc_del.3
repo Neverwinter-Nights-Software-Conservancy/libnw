@@ -1,0 +1,15 @@
+.TH agg_toc_load 3 2003/08/30 libnw-1.30.02
+.SH "NAME"
+agg_toc_del() \- free a table of contents from an NWN aggregate file
+.SH "SYNOPSIS"
+#include "agg.h"
+.br
+void agg_toc_delete(struct nwn_agg_toc* tp);
+.SH "DESCRIPTION"
+agg_toc_del() frees all the storage used by an nwn_agg_toc structure and
+all its substructures.
+.SH "AUTHOR"
+Marty Shannon <mailto:mshannon@domovina.org>
+.SH "SEE ALSO"
+nwaggext(1),
+agg_toc_load(3).

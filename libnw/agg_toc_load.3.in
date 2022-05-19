@@ -1,0 +1,21 @@
+.TH agg_toc_load 3 @RELDATE@ @PACKAGE@-@VERSION@
+.SH "NAME"
+agg_toc_load() \- load the table of contents of an NWN aggregate file
+.SH "SYNOPSIS"
+#include "agg.h"
+.br
+struct nwn_agg_toc* agg_toc_load(const char* fname, long off);
+.SH "DESCRIPTION"
+agg_toc_load opens file \fIfname\fP, seeks to offset \fIoff\fP, and builds
+an nwn_agg_toc structure from the table of contents.
+.P
+Valid NWN aggregate file extensions include: MOD, HAK, ERF.
+.SH "RETURN VALUE"
+On any error condition, 0 is returned.
+Otherwise a pointer to the nwn_agg_toc structure is returned, which must be
+freed by agg_toc_del().
+.SH "AUTHOR"
+Marty Shannon <mailto:mshannon@domovina.org>
+.SH "SEE ALSO"
+nwaggext(1),
+agg_toc_del(3).

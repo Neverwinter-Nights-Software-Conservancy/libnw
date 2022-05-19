@@ -1,0 +1,17 @@
+.TH bif_toc_load 3 @RELDATE@ @PACKAGE@-@VERSION@
+.SH "NAME"
+bif_toc_load() \- load the table of contents of an NWN BIF file
+.SH "SYNOPSIS"
+#include "bif.h"
+.br
+struct nw_bif_ent* bif_toc_load(char* relpath, unsigned long* nents)
+.SH "DESCRIPTION"
+bif_toc_load opens file \fIrelpath\fP (relative to nwn_inp_dir),
+and builds an nw_bif_ent structure from the table of contents.
+.SH "RETURN VALUE"
+On any error condition, 0 is returned, and the unsigned long pointed to by
+\fInents\fP will be set to 0.
+Otherwise a pointer to the nwn_bif_toc structure is returned, and the unsigned
+long pointed to by \fInents\fP will contain the number of entries found.
+.SH "AUTHOR"
+Marty Shannon <mailto:mshannon@domovina.org>

@@ -1,0 +1,16 @@
+2003/05/17:
+
+I made the switch about a month ago to Red Hat 9 on my development machine.
+Unfortunately, that means that I'm using autoconf-2.57, automake-1.6.3,
+aclocal-1.6.3, libtoolize-1.4.3, autoheader-2.57, and earlier versions
+may have problems coping.  This *should* only affect folks grabbing the
+source from CVS, though the configure script included in the tarball may
+have difficulties on some systems.  CVS users, please save yourself some
+headaches and grab the above-mentioned versions for your development machines.
+
+2003/04/26:
+
+It appears that debian unstable ships a version of bison labelled "1.875a".
+It will not process libnw/sety.y due to a gratuitous backward incompatibility
+with the original yacc and previous versions of bison.  Known working versions
+include 1.35 (which debian seems to have in its "testing" branch).

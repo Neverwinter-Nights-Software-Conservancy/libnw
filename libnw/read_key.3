@@ -1,0 +1,18 @@
+.TH read_key 3 2003/08/30 libnw-1.30.02
+.SH "NAME"
+read_key() \- load the master table(s) of contents for NWN BIF files
+.SH "SYNOPSIS"
+#include "key.h"
+.br
+int read_key(const char* gamedir);
+.SH "DESCRIPTION"
+read_key reads file "chitin.key" (and "patch.key", if present) in directory
+\fIgamedir\fP, building the global \fInw_key_rsc_v\fP structure, and the global
+\fInw_key_rsc_fnames_v\fP structure.
+.SH "RETURN VALUE"
+On any error condition, 0 is returned.
+Otherwise, a non-zero integer is returned.
+.SH "AUTHOR"
+Marty Shannon <mailto:mshannon@domovina.org>
+.SH "SEE ALSO"
+get_game_dir(3).

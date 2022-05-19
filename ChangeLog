@@ -1,0 +1,394 @@
+mshannon@domovina.org Sun Aug 10 17:36:41 EDT 2003
+
+	* added -y and -l flags to nwtsmerge/main.c for debugging and went
+		back to compiling with debugging.
+	* provided for the (single) case where a tile specification does
+		not name an image map.
+	* added checks of return values for the calls to nwset_parse().
+	* added more file types to ./magic.
+
+mshannon@domovina.org Sat Aug  9 15:11:28 EDT 2003
+
+	* version 1.30.02; RELDATE 2003/08/10.
+	* commented include/restyp.h & libnw/restyp.c.
+	* adjusted include/{bif,key}.h to match BioWare docs; several other
+		files in libnw touched to correct behavior.
+	* changed nwareamap/main.c to print minimap name; added -y flag for
+		yacc/bison debugging.
+	* changed libnw/Makefile.am to not use -d (debug) flag to lex/flex.
+	* slight addition to GFF-writing code in libnw/plist.c.
+	* added #defines for vlen(), vsubig(), vsubip() in include/v.h
+		(not yet enabled).
+	* added file "magic" in top-level directory; not really sure how to
+		properly install for "file" command's use.
+
+mshannon@domovina.org ??? Jul ?? ??:??:?? EDT 2003
+
+	* probably a few changes missed here, but not much, and not
+		significant.  Sigh.
+
+2003-07-10  sumpfork  <pgorniak@mac.com>
+
+	* added Readme.MacOSX
+	* fixed a missing MALLOC_H header include chech
+	* fixed all big endian conversions for agg resource type entries
+
+mshannon@domovina.org Sun Jul  6 16:48:28 EDT 2003
+
+	* redid locstr container to include StrRef; touches lots of code.
+	* protected include/object.h from multiple #includes.
+	* fixed itpdis/main.c to output strref for LOCSTRs.
+	* more intermdiate work on GFF-writing.
+	* added include/exmem.h, libnw/exmem.c.
+
+mshannon@domovina.org Fri Jul  4 14:41:49 EDT 2003
+
+	* version 1.30.01; RELDATE 2003/07/04!
+	* added some temporary debugging code in plistcheck/main.c.
+	* added Mod_CutsnAbort to ifo.h, plist2ifo.
+	* added IsImmortal to utc.h, plist2utc.
+	* added code to read xp1.key, if present (for SoU).
+	* minor start to GFF writing in libnw/plist.c.
+
+mshannon@domovina.org Tue Jun  3 11:17:40 EDT 2003
+
+	* changed RELDATE to 2003/06/03.
+	* fleshed out dlg.h.
+	* fleshed out gic.h.
+	* fleshed out ifo.h (from saved game).
+	* fleshed out utt.h.
+	* added plist2{dlg,gic,utt}.c.
+	* fleshed out plist2ifo.c.
+	* updated plistcheck/main.c to include new plist2*().
+
+mshannon@domovina.org Sun Jun  1 13:03:18 EDT 2003
+
+	* version 1.29.07; RELDATE 2003/06/01
+	* added plistcheck to verify all plist2*() routines.
+	* forced nwaggext to export into files with only lowercase names.
+	* fleshed out bic.h.
+	* fleshed out dlg.h.
+	* fleshed out fac.h.
+	* fleshed out gic.h.
+	* fleshed out git.h.
+	* fleshed out ifo.h.
+	* fleshed out ifo.h.
+	* added copy_locstrs() decl and macros asgn(), asgnrr(), asgns(),
+		asgnls() to object.h.
+	* fleshed out utc.h.
+	* fleshed out utd.h.
+	* fleshed out ute.h.
+	* fleshed out uti.h.
+	* fleshed out utm.h.
+	* fleshed out utp.h.
+	* fleshed out uts.h.
+	* fleshed out utw.h.
+	* adjusted libnw/.cvsignore (ylwrap added)
+	* added copy_locstrs() to plist.c.
+	* rewrote plist2*() in terms of macros above.
+	* NOTE: all BioWare-supplied modules produce no diagnostics from
+		any plist2*() routines!  (And there was much rejoicing!)
+
+mshannon@domovina.org Mon May 19 11:38:00 EDT 2003
+
+	* version 1.29.06; RELDATE 2003/05/19
+	* changed Doxyfile to Doxyfile.in in Makefile.am.
+	* minor updates to README.in.
+	* added AC_HEADER_TIME and check for sys/time.h in configure.in.
+	* added some structures to gui.h; very involved stuff there.
+	* added struct nwn_ifo_hak and Code members, and declaration of
+		plist2ifo() to ifo.h; much to add from IFOs in SAV files.
+	* added much more to uti.h; seems complete now.
+	* added struct nwn_utd to utd.h; probably complete.
+	* added struct nwn_ute to ute.h; probably complete.
+	* added struct nwn_utp_itemlist to utp.h; probably complete.
+	* added struct nwn_utt to utt.h; probably complete.
+	* added code to agg_create.c to set head.buildyear and head.buildday
+		at header write time.
+	* added some BIGENDIAN code to agg_create.c.
+	* added much code to plist2ifo(); fixed typo in diagnostic.
+	* made call to read_key() from nwareamap/main() conditional on tflag,
+		and moved it.
+
+mshannon@domovina.org Sat May 17 12:16:05 EDT 2003
+
+	* added more members to include/uti.h; added struct nwn_uti_properties.
+
+mshannon@domovina.org Sat May 17 11:19:16 EDT 2003
+
+	* added -t flag to nwareamap to just spit out tileset names,
+		dimensions, and area names; updated man page, too.
+	* added much more to mdly.y.
+	* added libnw/plist2ifo.c; updated Makefile.am.
+	* added struct xyzw to include/xyz.h; fixed bogus references (to
+		struct xyz) in include/mdl.h to refer to struct xyzw.
+	* added lots to include/agg.h, based on info from BioWare "For
+		Developers" site, including structure member names (as
+		comments only, so far).
+	* changed libnw/agg_create.c to refer to buildyear, buildday, and
+		descstrref instead of unkn[678].
+	* added item to NEWS w.r.t. automake & friends possible
+		incompatibilites.
+
+mshannon@domovina.org Sat May  3 13:36:05 EDT 2003
+
+	* added mdl.h to include/Makefile.am; "make distcheck" is your friend;
+		use it *before* committing a new release, dammit!
+	* added xyz.h to include/Makefile.am
+
+mshannon@domovina.org Sat May  3 13:19:41 EDT 2003
+
+	* version 1.29.05; RELDATE 2003/05/03
+	* updated lots of documentation comments.
+	* updated lots of .cvsignore files.
+	* updated include/mdl.h for new fields in nwn_mdl struct; added
+		declarations for parser.
+	* protect include/rgb.h from multiple #includes.
+	* protect include/set.h from multiple #includes.
+	* updated libnw/Makefile.am to include mdl{l.l,y.y,y.h}.
+	* added mdl{l.l,y.y} to parse *ascii* MDL resources.
+	* fixed set{l.l,y.y} to cope with automake/ylwrap brain damage.
+	* fixed filename length bug in nwareamap/main.c.
+	* commented and slightly rearranged nwareamap/main.c to serve as
+		"boilerplate" example for utilities manipulating modules.
+
+mshannon@domovina.org Sat Apr 26 18:35:06 EDT 2003
+
+	* added Doxyfile (config file for doxygen).
+	* redid comments in most header files to make useful output with doxygen.
+	* backed out change to order of autoheader in autogen.sh.
+
+mshannon@domovina.org Fri Apr 25 12:59:51 EDT 2003
+
+	* Added reference to Torlack in AUTHORS.
+	* Added structures to include/{git,uts}.h.
+	* Added "extern" to declaration of plist2are().
+	* Moved call to autoheader in autogen.sh; still not right.
+	* Added include/{mdl,xyz}.h.
+
+mshannon@domovina.org Fri Apr 18 00:15:28 EDT 2003
+
+	* version 1.29.04; RELDATE 2003/04/18.
+	* updated nwareamap/main.c to load up all the tiles.
+
+mshannon@domovina.org Thu Apr 17 22:59:40 EDT 2003
+
+	* woefully out of date ChangeLog.
+	* added nwareamap.
+	* added libnw/plist.c, libnw/plist2are.c, libnw/agg_load.c,
+		include/object.h.
+	* conditionalized *lots* of #include lines.
+	* made use of autoheader to generate config.h (in autogen.sh).
+	* nwtsrefs now calls Torlack's nwnmdlcomp, but doesn't work due to
+		a bug in Torlack's code.
+	* added struct nwn_are and nwn_are_tile to include/are.h.
+	* updated README.in to mention dependency on Torlack's nwnmdlcomp.
+	* updated README.in to describe nwareamap.
+
+mshannon@domovina.org Wed Apr  9 23:00:47 EDT 2003
+
+	* version 1.29.03; RELDATE: 2003/04/10
+	* cut wxgui loose to its own package.
+	* added libnw/global.c to define storage for MyName, nw_inp_out,
+		nw_inp_dir, and vflag.
+	* changed autogen.sh to call make without -j.
+	* arranged for include/*.h to be installed in $(pkgincludedir).
+
+mshannon@domovina.org Sat Mar 22 23:40:04 EST 2003
+
+	* removed debugging printfs from nwaggext/agg1ext.c
+	* added code to print LISTITEM/RECORD code from itpdis.
+
+2003-03-16 pgorniak@mac.com
+
+	* double endian conversion removed from itpdis/main.c
+
+mshannon@domovina.org Sun Mar 16 14:46:32 EST 2003
+
+	* fixed replacement of resources entries in read_key_internal()
+	* deleted some useless commentary in libnw/key.c
+	* mandatory vsort after reading chitin.key; again after patch.key
+		iff we loaded one
+
+2003-03-15  pgorniak@mac.com
+
+	* checking for machine/endian.h and endian.h
+	* added be2leull for unsigned long long conversion in bendian.{c,h}
+	* fixed some compile errors in libnw/strref.c
+	* fixed endian function uses in itpdis/main.c
+	* added bendian.h include to libnw/agg_create.c
+
+mshannon@domovina.org Sat Mar 15 11:16:31 EST 2003
+
+	* version 1.29.01; no libnw-affecting changes from BioWare with
+		their 1.29 patch, but lots of restructuring since 1.28.03.
+
+mshannon@domovina.org Sat Mar 15 10:27:45 EST 2003
+
+	* converted everything to make dynamic libraries available, installing
+		both dynamic and static.
+	* removed all global references to cur_Set; wrapped calls to
+		nwset__scan_bytes() and nwset_parse() into nw_parse_set().
+
+mshannon@domovina.org Sat Mar 15 08:44:48 EST 2003
+
+	* rewrote str2arr to use struct v
+	* changed nw2da2csv to not quote floating point numbers
+	* major stab at endian independence
+	* changed read_key_internal() to take an argument to tell whether
+		to complain about a missing KEY file
+	* updated Makefile.am to cope with automake-1.6.3
+	* updated configure.in to cope with autoconf-2.57
+	* added autogen.sh
+	* added README.License-Torlack
+
+2003-03-13  sumpfork  <pgorniak@mac.com>
+
+	* changes to make everything compile under Mac OS X
+
+mshannon@domovina.org Thu Mar 13 07:55:08 EST 2003
+
+	* version 1.28.03
+	* added tda2csv (just a framework for make_2da()).
+	* added libnw/make_2da.c.
+	* fixed sense of test on resref2bifidx() value.
+	* added include/2da.h
+	* finished tda2csv.
+	* updated README to reflect tda2csv; minor editing as well.
+	* added start of nwmrgplc.
+	* renamed strref -> nwstrref; tda2csv -> nw2da2csv.
+	* updated README for renaming.
+	* created README.in to get @PACKAGE@, @VERSION@, and @RELDATE@.
+	* changed bin22da() to use struct v; changed nwmrgplc and nw2da2csv
+		to match.
+	* added some man pages in libnw.
+	* this will be the initial version to appear in the OpenKnights
+		SourceForge Project!
+	* juggled some files to get licensing text to more appropriate places.
+	* now in sync with SourceForge.
+
+mshannon@domovina.org Tue Feb 18 11:52:06 EST 2003
+
+	* version 1.28.02
+	* slight updates & reformat to README.
+	* added xml directory and its contents.
+	* regularized use of global vflag; it changes behavior of print_rscs()
+		and libnw/dump.c.
+	* changed "-o outdir" to "-x"; extraction via nwresext goes in the
+		current directory.
+	* more updates to README.
+	* updated man pages to better reflect arguments.
+	* added libnw/strref.c, strref command, strref man page; updated
+		README.
+	* updated README.tech.
+	* added hooks to display (as comments) the string referred to by a
+		STRREF in itpdis (only effective for ITP, GFF).
+
+mshannon@domovina.org Thu Feb  6 19:08:39 EST 2003
+
+	* version 1.28.01
+	* vastly improved nwresext performance, using vsort and vbsearch
+		on nw_key_rsc_v.
+	* added RR_PTT (and "ptt") to include/restyp.h and libnw/restyp.c.
+	* libnw/key.c reads patch.key if present
+	* converted libnw/key.c and libnw/dump.c to use struct v; cleaned
+		out a lot of dreck in include/key.h.
+	* started to hack changes to permit use of patch.key; libnw/key.c
+		will bear the brunt of this.
+	* version scheme changed to match the latest NWN patch the code can
+		cope with.
+	* README.tech updated to make special note of patch.key and
+		data/patch.bif.
+
+mshannon@domovina.org ??? Jan 26 12:40:?? EST 2003
+
+	* version 0.09
+	* completely converted itpdis to produce valid XML.
+	* moved setexty.y and setextl.l to libnw; changed "yy" prefix to
+		"nwset_"; adjusted all references (lots of files).
+	* massive changes/additions to setexty.y and setextl.l to accomodate
+		all the new SET files I've accumulated.
+	* added nwtsrefs.
+	* put the appropriate magic in */Makefile.am to get man pages
+		installed; updated configure.in; added nwaggext/nwaggext.1.in,
+		nwresext/nwresext.1.in, itpdis/itpdis.1.in,
+		nwtsmerge/nwtsmerge.1.in.
+	* added comments in output for list length and list elements;
+		updated itpdis/main.c.
+	* added C-style escapes to strings; updated itpdis/main.c.
+	* check for escapable characters in tags (these occur in *.gic and
+		*.git); print 'em as escaped strings if so; updated
+		itpdis/main.c.
+	* fixed (debugging) printfs for root & index offsets and counts;
+		updated itpdis/main.c.
+	* added unkn8 to ERF/HAK/MOD header; updated include/agg.h,
+		nwaggext/agg1ext.c.
+
+mshannon@domovina.org Tue Dec 31 10:46:39 EST 2002
+
+	* version 0.08.
+	* 1st 2 longs in a module header are "hasdesc" (indicating whether
+		there is a description block or not), and "desclen" (the
+		length of the entire description block); updated include/mod.h
+		and moddis/mod1dis.c.
+	* added README.tech; updated Makefile.am.
+	* merged erfdis, hakdis, and moddis into nwaggext; updated Makefile.am,
+		configure.in, README, include/mod.h, include/erf.h,
+		include/hak.h; added include/agg.h.
+	* abstracted aggregate TOC using "struct v"; extracted TOC-reading to
+		nwaggext/agg1toc.c; nuked it from nwaggext/agg1ext.c; added
+		abstract struct to include/agg.h; updated nwaggext/Makefile.am.
+	* made agg_toc_delete() public; updated include/agg.h; added call
+		to nwaggext/agg1ext.c.
+	* updated README w.r.t. general ugliness.
+	* changed get_agg_toc() to agg_toc_load; updated include/agg.h,
+		nwaggext/agg_toc.c, nwaggext/agg1ext.c.
+	* moved agg_toc.c to libnw; updated nwaggext/Makefile.am,
+		libnw/Makefile.am.
+	* fixed type of typ2ext(); added ext2typ(); updated libnw/restyp.c,
+		include/restyp.h.
+	* started on agg_create(); created nwaggext/agg_create.c; updated
+		nwaggext/nwaggext.c, nwaggext/Makefile.am.
+	* functioning agg_create()! updated README, nwaggext/agg_create.c.
+	* 1st version of man pages added; added nwaggext/nwaggext.1,
+		nwresext/nwresext.1, itpdis/itpdis.1, nwtsmerge/nwtsmerge.1.
+
+mshannon@domovina.org Sat Dec 28 20:11:50 EST 2002
+
+	* version 0.07.
+	* much scrapped; much added; direction changed.
+
+mshannon@domovina.org Sat Oct 26 20:59:00 EDT 2002
+
+	* version 0.06.
+	* added setext; eventual purpose: to merge tilesets.
+
+mshannon@domovina.org ?
+
+	* version 0.05.
+
+mshannon@domovina.org Sun May 19 11:16:59 EDT 2002
+
+	* version 0.04.
+	* added dump_txi() to extract "texture instructions"?
+
+mshannon@domovina.org Sun May 19 09:52:11 EDT 2002
+
+	* version 0.03.
+	* added dump_ini() to extract init scripts.
+	* added dump_2da() to extract 2-dimensional arrays.
+	* subsumed dump_nss() into dump_bin(); added dump_ncs() to
+		extract compiled scripts.
+	* added -o flag for output dir.
+
+mshannon@domovina.org Sun May 19 08:12:32 EDT 2002
+
+	* version 0.02.
+	* added read_bif() to read BIFF header.
+	* added dump_nss() to extract script resources.
+
+mshannon@domovina.org Sat May 18 10:00:00 EDT 2002
+
+	* initial version (0.01).
+	* basic main() and read_key() to read KEY file.
+

@@ -1,0 +1,1 @@
+pkginclude_HEADERS = 2da.h agg.h are.h bendian.h bic.h bif.h bin.h dlg.h erf.h fac.h gamedir.h gff.h gic.h git.h global.h gui.h hak.h ifo.h itp.h jrl.h key.h libnw_version.h mdl.h mod.h nwnfopen.h object.h ptt.h restyp.h rgb.h set.h str.h tlk.h utc.h utd.h ute.h uti.h utm.h utp.h uts.h utt.h utw.h v.h xref.h xyz.h exmem.h

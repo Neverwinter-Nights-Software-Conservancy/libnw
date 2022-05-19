@@ -1,0 +1,35 @@
+.TH nwaggext 1 2003/08/30 libnw-1.30.02
+.SH "NAME"
+nwaggext \- list, extract, create NWN aggregate files
+.SH "SYNOPSIS"
+nwaggext file.hak
+.br
+nwaggext -x file.mod
+.br
+nwaggext -t e -c file.erf resource ...
+.br
+nwaggext -t m -c file.mod resource ...
+.br
+nwaggext -t h -c file.hak resource ...
+.SH "DESCRIPTION"
+nwaggext is a multipurpose command to manipulate NWN aggregate files (*.mod,
+*.hak, *.erf).
+.P
+In the 1st form above, it lists the resources found in the file, along with
+their sizes and offsets.
+.P
+In the 2nd form above, it extracts the resources, each into its own file,
+in the current directory.
+.P
+In the 3rd through 5th forms above, it creates a new aggregate file of the
+given type composed of the resources listed.
+.P
+It is an error to use the -c flag without a -t flag.
+.SH "EXIT STATUS"
+On success, 0 is returned.
+For any fatal error, a non-zero value is returned.
+.SH "AUTHOR"
+Marty Shannon <mailto:mshannon@domovina.org>
+.SH "SEE ALSO"
+nwresext(1),
+itpdis(1).
